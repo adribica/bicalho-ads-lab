@@ -1,68 +1,88 @@
 import React from 'react';
-import { DatabaseZap, Activity, Rocket } from 'lucide-react';
+import { Database, Zap, MessageCircle } from 'lucide-react';
 
-const steps = [
+const processSteps = [
     {
         id: 1,
-        title: "1. Posicionamento e Branding",
-        description: "Como fazer seu negócio parecer maior, mais confiável e mais profissional — independentemente do nicho.",
-        icon: <DatabaseZap className="w-8 h-8 text-gold-main" />
+        title: "Etapa 1",
+        subtitle: "Coleta de Informação",
+        description: "Você envia os dados base do seu negócio através do nosso formulário auditável.",
+        icon: <Database className="w-6 h-6 text-white" />,
+        colorGlow: "shadow-[0_0_30px_rgba(255,255,255,0.2)] border-white/30"
     },
     {
         id: 2,
-        title: "2. Estrutura de Conversão",
-        description: "Análise estratégica de página e funil para identificar quebras de persuasão, falta de autoridade e erros de estrutura.",
-        icon: <Activity className="w-8 h-8 text-magenta-neon" />
+        title: "Etapa 2",
+        subtitle: "A Análise do Laboratório",
+        description: "Nós analisamos todos os pontos estratégicos do seu funil (Branding, Landing Page e Criativos).",
+        icon: <Zap className="w-6 h-6 text-magenta-neon" />,
+        colorGlow: "shadow-[0_0_30px_rgba(255,0,255,0.3)] border-magenta-neon/50"
     },
     {
         id: 3,
-        title: "3. Estratégia de Aquisição",
-        description: "Diagnóstico de tráfego abrangente: correção de ângulos criativos, estrutura de oferta e direcionamento de público para escalar.",
-        icon: <Rocket className="w-8 h-8 text-white" />
+        title: "Etapa 3",
+        subtitle: "O Veredito Final",
+        description: "Você recebe o diagnóstico completo, direto no seu WhatsApp, contendo a Engenharia Reversa de Escala.",
+        icon: <MessageCircle className="w-6 h-6 text-gold-main" />,
+        colorGlow: "shadow-[0_0_30px_rgba(212,175,55,0.3)] border-gold-main/50"
     }
 ];
 
 const HowItWorks: React.FC = () => {
     return (
-        <section className="relative w-full py-32 px-6 z-10 bg-background/80" id="como-funciona">
+        <section className="relative w-full py-32 px-6 z-10 bg-[#020202]" id="como-funciona">
 
-            {/* Glow Effects Background */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-magenta-neon/10 blur-[120px] rounded-full pointer-events-none -z-10"></div>
+            {/* Background Dim */}
+            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,rgba(255,0,255,0.03)_0,transparent_70%)] pointer-events-none"></div>
 
-            <div className="max-w-7xl mx-auto">
-                <div className="text-center mb-20">
-                    <h2 className="text-sm font-bold tracking-[0.2em] text-gold-main uppercase mb-4">Engenharia Híbrida</h2>
-                    <h3 className="text-4xl md:text-5xl font-black text-white tracking-tight">
-                        Os 3 Pilares do <span className="text-transparent bg-clip-text bg-gradient-to-r from-magenta-neon to-gold-main">Laboratório</span>
-                    </h3>
+            <div className="max-w-4xl mx-auto relative">
+                <div className="text-center mb-24">
+                    <h2 className="text-4xl md:text-5xl font-black text-white tracking-tight">
+                        Como Funciona o <span className="text-transparent bg-clip-text bg-gradient-to-r from-magenta-neon to-primary-neon">Processo</span>
+                    </h2>
+                    <p className="mt-4 text-white/50 text-lg">Três passos simples que separam sua marca da previsibilidade de vendas.</p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {steps.map((step) => (
-                        <div
-                            key={step.id}
-                            className="group relative p-1 rounded-2xl bg-gradient-to-b from-white/10 to-transparent hover:from-magenta-neon/50 hover:to-gold-main/20 transition-all duration-500 hover:-translate-y-2 h-full transform-style-3d perspective-1000"
-                        >
-                            <div className="absolute -inset-0.5 bg-gradient-to-r from-magenta-neon to-gold-main rounded-2xl opacity-0 group-hover:opacity-30 blur-md transition duration-500"></div>
+                {/* Linha Neon Conectora (Apenas Web) */}
+                <div className="absolute left-1/2 top-[200px] bottom-[100px] w-0.5 bg-gradient-to-b from-white/10 via-magenta-neon/50 to-gold-main/10 hidden md:block -ml-[1px]"></div>
 
-                            <div className="relative h-full bg-[#0a0a0a] rounded-xl p-8 border border-white/5 flex flex-col gap-6 z-10 overflow-hidden" style={{ transform: 'translateZ(10px)' }}>
+                <div className="flex flex-col gap-12 relative z-10">
+                    {processSteps.map((step, index) => {
+                        const isEven = index % 2 !== 0;
+                        return (
+                            <div key={step.id} className={`flex flex-col md:flex-row items-center gap-8 md:gap-16 w-full ${isEven ? 'md:flex-row-reverse' : ''}`}>
 
-                                {/* Efeito de Reflexo no Hover */}
-                                <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
-
-                                <div className="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 group-hover:border-magenta-neon/30 group-hover:shadow-[0_0_30px_rgba(255,0,255,0.3)] transition-all duration-500 z-10 relative">
-                                    {step.icon}
+                                {/* Espaçador Flexível D/E */}
+                                <div className="flex-1 hidden md:block w-full">
+                                    <div className={`flex flex-col ${isEven ? 'items-start text-left' : 'items-end text-right'}`}>
+                                        <h4 className="text-2xl font-black text-white">{step.subtitle}</h4>
+                                        <p className="text-white/50 mt-2 max-w-sm">{step.description}</p>
+                                    </div>
                                 </div>
 
-                                <div className="relative z-10">
-                                    <h4 className="text-xl font-bold text-white mb-3 tracking-wide">{step.title}</h4>
-                                    <p className="text-white/60 leading-relaxed font-medium">
-                                        {step.description}
-                                    </p>
+                                {/* Nó Central (Circle + Icon) com Hover Scale */}
+                                <div className="relative group shrink-0">
+                                    <div className={`w-20 h-20 rounded-full bg-[#0a0a0a] border border-white/10 flex items-center justify-center relative z-20 group-hover:scale-110 transition-transform duration-500 ease-out group-hover:${step.colorGlow}`}>
+                                        {step.icon}
+                                    </div>
+                                    {/* Etiqueta Passo Mobile/Web */}
+                                    <div className={`absolute top-1/2 -translate-y-1/2 px-3 py-1 bg-white/10 rounded-full border border-white/5 text-[10px] font-bold tracking-widest uppercase text-white backdrop-blur-md whitespace-nowrap hidden md:block ${isEven ? '-left-24' : '-right-24'}`}>
+                                        {step.title}
+                                    </div>
                                 </div>
+
+                                {/* Conteúdo Mobile/Alternativo */}
+                                <div className="flex-1 md:hidden text-center">
+                                    <span className="text-xs font-bold text-magenta-neon uppercase tracking-widest">{step.title}</span>
+                                    <h4 className="text-2xl font-black text-white mt-1 mb-2">{step.subtitle}</h4>
+                                    <p className="text-white/50">{step.description}</p>
+                                </div>
+
+                                {/* Placeholder para balancear Flexbox Desq/Esq no Desktop */}
+                                <div className="flex-1 hidden md:block"></div>
                             </div>
-                        </div>
-                    ))}
+                        );
+                    })}
                 </div>
             </div>
         </section>

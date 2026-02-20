@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { TrendingUp, Target, ShoppingBag, Eye, Zap } from 'lucide-react';
+import { Search, Activity, Rocket } from 'lucide-react';
 
 const HeroV2: React.FC = () => {
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -24,163 +24,160 @@ const HeroV2: React.FC = () => {
     return (
         <section className="relative w-full min-h-screen pt-32 pb-20 px-6 flex flex-col lg:flex-row items-center justify-between max-w-7xl mx-auto z-20 overflow-hidden">
 
-            {/* Background Glows */}
-            <div className="absolute top-1/4 -left-1/4 w-[600px] h-[600px] bg-primary-neon/15 blur-[150px] rounded-full pointer-events-none -z-10"></div>
-            <div className="absolute bottom-0 -right-1/4 w-[500px] h-[500px] bg-magenta-neon/10 blur-[150px] rounded-full pointer-events-none -z-10"></div>
+            {/* Background Glows Subtis - Fundo Preto Profundo V3 */}
+            <div className="absolute top-1/4 -left-1/4 w-[600px] h-[600px] bg-primary-dark/20 blur-[150px] rounded-full pointer-events-none -z-10"></div>
+            <div className="absolute bottom-0 -right-1/4 w-[500px] h-[500px] bg-magenta-dim blur-[150px] rounded-full pointer-events-none -z-10"></div>
 
-            {/* Esquerda: Copywriting Violento Universal */}
+            {/* LADO ESQUERDO: COPY FORTE E CLARA */}
             <div className="w-full lg:w-1/2 flex flex-col items-start z-10 relative mt-10 md:mt-0">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8 transform-style-3d"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8"
                 >
-                    <div className="w-2 h-2 rounded-full bg-magenta-neon animate-pulse-fast"></div>
-                    <span className="text-xs font-bold tracking-widest text-white/80 uppercase">Análise Estratégica Liberada</span>
+                    <div className="w-2 h-2 rounded-full bg-gold-main animate-pulse-fast"></div>
+                    <span className="text-[10px] md:text-xs font-bold tracking-widest text-gold-light uppercase">Análise Estratégica Gratuita</span>
                 </motion.div>
 
                 <motion.h1
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
-                    className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.1] tracking-tight mb-8"
+                    className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.1] tracking-tight mb-6"
                 >
-                    Seu Negócio Não Está Crescendo Por <span className="text-transparent bg-clip-text bg-gradient-to-r from-magenta-neon via-primary-neon to-gold-main">Falta de Produto.</span><br /> Está Crescendo Devagar Por Falta de Estratégia.
+                    Auditoria Completa do Seu Negócio<br />
+                    <span className="text-white/60 text-3xl md:text-4xl lg:text-5xl">Descubra Onde Está Perdendo Vendas</span>
                 </motion.h1>
 
                 <motion.p
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-                    className="text-lg md:text-xl text-white/60 font-medium leading-relaxed mb-10 max-w-xl"
+                    className="text-lg text-white/50 font-medium leading-relaxed mb-10 max-w-xl"
                 >
-                    Descubra exatamente onde seu posicionamento está fraco, por que sua comunicação não gera desejo e qual estratégia pode <strong className="text-white">transformar seu negócio em uma máquina previsível de vendas.</strong>
+                    Vamos analisar <strong className="text-white">posicionamento, oferta, comunicação, conversão e tráfego.</strong> Você recebe um diagnóstico estratégico personalizado.
                 </motion.p>
 
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-                    className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
+                    className="flex flex-col sm:flex-row items-center gap-6 w-full sm:w-auto"
                 >
                     <button
                         onClick={scrollToJarvis}
-                        className="group relative px-8 py-5 rounded-xl bg-white text-black font-black text-lg overflow-hidden transition-all hover:scale-[1.02] shadow-[0_0_30px_rgba(255,255,255,0.2)] whitespace-nowrap"
+                        className="w-full sm:w-auto group relative px-8 py-5 rounded-xl bg-white text-black font-black text-sm md:text-base overflow-hidden transition-all hover:scale-[1.02] shadow-[0_0_30px_rgba(255,255,255,0.15)] whitespace-nowrap active:scale-[0.98]"
                     >
-                        <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-magenta-neon/20 to-primary-neon/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                        <span className="relative flex items-center justify-center gap-3">
-                            QUERO MINHA ANÁLISE ESTRATÉGICA
-                            <Zap className="w-5 h-5 group-hover:text-magenta-neon transition-colors" />
+                        <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-magenta-neon/10 to-gold-main/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <span className="relative flex items-center justify-center gap-2">
+                            RECEBER AUDITORIA GRATUITA
+                            <Search className="w-4 h-4" />
                         </span>
                     </button>
 
                     <button
-                        className="px-8 py-5 rounded-xl glass font-bold text-white hover:bg-white/10 transition-colors border border-white/10 flex items-center justify-center gap-3 whitespace-nowrap"
+                        className="w-full sm:w-auto text-sm font-semibold text-white/50 hover:text-white transition-colors flex items-center justify-center gap-2 group"
                         onClick={() => {
-                            const worksSection = document.getElementById('como-funciona');
-                            worksSection?.scrollIntoView({ behavior: 'smooth' });
+                            const auditSection = document.getElementById('auditoria-grid');
+                            auditSection?.scrollIntoView({ behavior: 'smooth' });
                         }}
                     >
-                        Ver Pilares
+                        Ver o que será analisado
+                        <span className="group-hover:translate-x-1 transition-transform">→</span>
                     </button>
                 </motion.div>
             </div>
 
-            {/* Direita: Elementos 3D Dinâmicos */}
-            <div className="w-full lg:w-1/2 mt-20 lg:mt-0 relative perspective-1000 h-[500px] hidden md:block">
+            {/* LADO DIREITO: PAINEL 3D DE AUDITORIA (MUITO FORTE VISUALMENTE) */}
+            <div className="w-full lg:w-1/2 mt-20 lg:mt-0 relative perspective-1000 h-[550px] hidden md:block">
 
-                {/* Card Principal - Dashboard Abstrato */}
                 <motion.div
-                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md h-[400px] glass rounded-3xl p-6 border-white/10 shadow-2xl flex flex-col justify-between overflow-hidden"
+                    className="absolute inset-0 w-full h-full flex flex-col justify-center gap-6 pl-10"
                     animate={{
                         rotateX: mousePosition.y * -15,
                         rotateY: mousePosition.x * 15,
                     }}
-                    transition={{ type: "spring", stiffness: 75, damping: 20 }}
+                    transition={{ type: "spring", stiffness: 50, damping: 20 }}
                     style={{ transformStyle: 'preserve-3d' }}
                 >
-                    {/* Fundo Reflexivo Interno */}
-                    <div className="absolute inset-0 bg-gradient-to-tr from-magenta-neon/10 via-transparent to-primary-neon/10 pointer-events-none"></div>
+                    {/* Card 1: Posicionamento */}
+                    <div
+                        className="relative bg-[#0a0a0a]/90 backdrop-blur-xl border border-white/5 rounded-2xl p-6 shadow-2xl overflow-hidden group ml-12"
+                        style={{ transform: 'translateZ(60px)' }}
+                    >
+                        <div className="absolute top-0 left-0 w-1 h-full bg-gold-main/50"></div>
+                        {/* Animating Scanline */}
+                        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent via-gold-main/5 to-transparent -translate-y-full group-hover:animate-[scan_2s_ease-in-out_infinite]"></div>
 
-                    <div className="flex justify-between items-start" style={{ transform: 'translateZ(30px)' }}>
-                        <div>
-                            <p className="text-white/50 font-bold text-sm tracking-wider uppercase mb-1">Crescimento Potencial</p>
-                            <h3 className="text-4xl font-black text-white shrink-0">Ilimitado</h3>
+                        <div className="flex items-center gap-4 mb-2">
+                            <Search className="w-5 h-5 text-gold-main" />
+                            <h3 className="text-white font-bold text-lg tracking-wide">Posicionamento</h3>
                         </div>
-                        <div className="p-3 bg-white/5 rounded-xl border border-white/10">
-                            <TrendingUp className="w-6 h-6 text-magenta-neon" />
+                        <div className="flex items-center justify-between pl-9 text-xs">
+                            <span className="text-white/40 font-medium uppercase tracking-wider">Status</span>
+                            <span className="text-gold-light font-bold flex items-center gap-2">
+                                <span className="w-1.5 h-1.5 rounded-full bg-gold-light animate-pulse"></span>
+                                Em Análise
+                            </span>
                         </div>
                     </div>
 
-                    <div className="space-y-4" style={{ transform: 'translateZ(50px)' }}>
-                        <div className="h-2 w-full bg-[#0a0a0a] rounded-full overflow-hidden">
-                            <div className="h-full w-[85%] bg-gradient-to-r from-primary-neon to-magenta-neon relative">
-                                <div className="absolute top-0 right-0 bottom-0 left-0 bg-[linear-gradient(45deg,rgba(255,255,255,0.2)25%,transparent_25%,transparent_50%,rgba(255,255,255,0.2)_50%,rgba(255,255,255,0.2)_75%,transparent_75%,transparent)] bg-[length:20px_20px] animate-[slide_1s_linear_infinite]"></div>
-                            </div>
+                    {/* Card 2: Estrutura de Conversão */}
+                    <div
+                        className="relative bg-[#0a0a0a]/90 backdrop-blur-xl border border-white/5 rounded-2xl p-6 shadow-2xl overflow-hidden group ml-0"
+                        style={{ transform: 'translateZ(80px)' }}
+                    >
+                        <div className="absolute top-0 left-0 w-1 h-full bg-magenta-neon/50"></div>
+                        {/* Animating Scanline */}
+                        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent via-magenta-neon/5 to-transparent -translate-y-full group-hover:animate-[scan_2s_ease-in-out_infinite_0.5s]"></div>
+
+                        <div className="flex items-center gap-4 mb-2">
+                            <Activity className="w-5 h-5 text-magenta-neon" />
+                            <h3 className="text-white font-bold text-lg tracking-wide">Estrutura de Conversão</h3>
                         </div>
-                        <div className="flex justify-between text-xs font-medium text-white/40">
-                            <span>Eficiência da Estrutura</span>
-                            <span className="text-magenta-neon">Previsibilidade Total</span>
+                        <div className="flex items-center justify-between pl-9 text-xs">
+                            <span className="text-white/40 font-medium uppercase tracking-wider">Status</span>
+                            <span className="text-magenta-neon font-bold flex items-center gap-2">
+                                <span className="w-1.5 h-1.5 rounded-full bg-magenta-neon animate-pulse"></span>
+                                Verificando Pontos de Fricção
+                            </span>
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-4 mt-6" style={{ transform: 'translateZ(40px)' }}>
-                        <div className="p-4 bg-[#0a0a0a]/80 backdrop-blur rounded-2xl border border-white/5">
-                            <Target className="w-5 h-5 text-gold-main mb-2" />
-                            <p className="text-white/50 text-xs font-bold mb-1">Posicionamento</p>
-                            <p className="text-lg font-black text-white">Autoridade Máxima</p>
+                    {/* Card 3: Estratégia de Aquisição */}
+                    <div
+                        className="relative bg-[#0a0a0a]/90 backdrop-blur-xl border border-white/5 rounded-2xl p-6 shadow-2xl overflow-hidden group ml-6"
+                        style={{ transform: 'translateZ(40px)' }}
+                    >
+                        <div className="absolute top-0 left-0 w-1 h-full bg-primary-neon/50"></div>
+                        {/* Animating Scanline */}
+                        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent via-primary-neon/5 to-transparent -translate-y-full group-hover:animate-[scan_2s_ease-in-out_infinite_1s]"></div>
+
+                        <div className="flex items-center gap-4 mb-2">
+                            <Rocket className="w-5 h-5 text-primary-neon" />
+                            <h3 className="text-white font-bold text-lg tracking-wide">Estratégia de Aquisição</h3>
                         </div>
-                        <div className="p-4 bg-[#0a0a0a]/80 backdrop-blur rounded-2xl border border-white/5">
-                            <ShoppingBag className="w-5 h-5 text-primary-neon mb-2" />
-                            <p className="text-white/50 text-xs font-bold mb-1">Conversão</p>
-                            <p className="text-lg font-black text-white">Teto Destravado</p>
+                        <div className="flex items-center justify-between pl-9 text-xs">
+                            <span className="text-white/40 font-medium uppercase tracking-wider">Status</span>
+                            <span className="text-primary-neon font-bold flex items-center gap-2">
+                                <span className="w-1.5 h-1.5 rounded-full bg-primary-neon animate-pulse"></span>
+                                Avaliando Performance
+                            </span>
                         </div>
                     </div>
+
+                    {/* Holograma Gráfico Abstrato de Fundo */}
+                    <div
+                        className="absolute top-1/4 right-0 w-64 h-64 border border-white/5 rounded-full border-dashed opacity-20 pointer-events-none"
+                        style={{ transform: 'translateZ(10px) rotateX(60deg)' }}
+                    ></div>
+                    <div
+                        className="absolute top-1/4 right-8 w-48 h-48 border border-magenta-neon/20 rounded-full border-dashed opacity-30 pointer-events-none animate-[spin_10s_linear_infinite]"
+                        style={{ transform: 'translateZ(20px) rotateX(60deg)' }}
+                    ></div>
+
                 </motion.div>
-
-                {/* Card Flutuante 1 - Notificação */}
-                <motion.div
-                    className="absolute -left-10 top-20 glass p-4 rounded-2xl border border-magenta-neon/30 shadow-glow-magenta flex items-center gap-4 z-20 animate-float"
-                    animate={{
-                        rotateX: mousePosition.y * -20,
-                        rotateY: mousePosition.x * 20,
-                        z: 80
-                    }}
-                    transition={{ type: "spring", stiffness: 100, damping: 15 }}
-                >
-                    <div className="w-10 h-10 rounded-full bg-magenta-neon/20 flex items-center justify-center border border-magenta-neon/50">
-                        <Eye className="w-5 h-5 text-magenta-neon" />
-                    </div>
-                    <div>
-                        <p className="text-xs font-bold text-white/50">Estrutura de Conversão</p>
-                        <p className="text-sm font-black text-white">Desejo Gerado</p>
-                    </div>
-                </motion.div>
-
-                {/* Card Flutuante 2 - Badge Gold */}
-                <motion.div
-                    className="absolute -right-5 bottom-16 glass p-4 rounded-2xl border border-gold-main/30 shadow-glow-gold flex items-center gap-4 z-20"
-                    animate={{
-                        rotateX: mousePosition.y * -25,
-                        rotateY: mousePosition.x * 25,
-                        y: [0, -15, 0]
-                    }}
-                    transition={{
-                        y: { duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 },
-                        rotateX: { type: "spring", stiffness: 100, damping: 15 },
-                        rotateY: { type: "spring", stiffness: 100, damping: 15 }
-                    }}
-                >
-                    <div className="w-10 h-10 rounded-xl bg-gold-main/20 flex items-center justify-center border border-gold-main/50">
-                        <Zap className="w-5 h-5 text-gold-main" />
-                    </div>
-                    <div>
-                        <p className="text-xs font-bold text-white/50">Estratégia de Aquisição</p>
-                        <p className="text-sm font-black text-white">Máquina Operante</p>
-                    </div>
-                </motion.div>
-
             </div>
         </section>
     );
