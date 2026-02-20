@@ -7,7 +7,6 @@ const HeroV2: React.FC = () => {
 
     useEffect(() => {
         const handleMouseMove = (e: MouseEvent) => {
-            // Normalizando a posição do mouse entre -1 e 1
             const x = (e.clientX / window.innerWidth - 0.5) * 2;
             const y = (e.clientY / window.innerHeight - 0.5) * 2;
             setMousePosition({ x, y });
@@ -29,8 +28,8 @@ const HeroV2: React.FC = () => {
             <div className="absolute top-1/4 -left-1/4 w-[600px] h-[600px] bg-primary-neon/15 blur-[150px] rounded-full pointer-events-none -z-10"></div>
             <div className="absolute bottom-0 -right-1/4 w-[500px] h-[500px] bg-magenta-neon/10 blur-[150px] rounded-full pointer-events-none -z-10"></div>
 
-            {/* Esquerda: Copywriting Violento */}
-            <div className="w-full lg:w-1/2 flex flex-col items-start z-10 relative">
+            {/* Esquerda: Copywriting Violento Universal */}
+            <div className="w-full lg:w-1/2 flex flex-col items-start z-10 relative mt-10 md:mt-0">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -38,16 +37,16 @@ const HeroV2: React.FC = () => {
                     className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8 transform-style-3d"
                 >
                     <div className="w-2 h-2 rounded-full bg-magenta-neon animate-pulse-fast"></div>
-                    <span className="text-xs font-bold tracking-widest text-white/80 uppercase">Auditoria Gratuita Liberada</span>
+                    <span className="text-xs font-bold tracking-widest text-white/80 uppercase">Análise Estratégica Liberada</span>
                 </motion.div>
 
                 <motion.h1
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
-                    className="text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.1] tracking-tight mb-8"
+                    className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.1] tracking-tight mb-8"
                 >
-                    Não aumente sua verba de anúncios antes de <span className="text-transparent bg-clip-text bg-gradient-to-r from-magenta-neon via-primary-neon to-gold-main">consertar sua loja.</span>
+                    Seu Negócio Não Está Crescendo Por <span className="text-transparent bg-clip-text bg-gradient-to-r from-magenta-neon via-primary-neon to-gold-main">Falta de Produto.</span><br /> Está Crescendo Devagar Por Falta de Estratégia.
                 </motion.h1>
 
                 <motion.p
@@ -56,7 +55,7 @@ const HeroV2: React.FC = () => {
                     transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                     className="text-lg md:text-xl text-white/60 font-medium leading-relaxed mb-10 max-w-xl"
                 >
-                    A engenharia oculta por trás de marcas milionárias. Nós não fazemos apenas tráfego: nós reescrevemos o <strong className="text-white">Branding</strong>, refinamos a <strong className="text-white">Oferta</strong> e construímos <strong className="text-white">Páginas de Produto</strong> que convertem frios em fãs.
+                    Descubra exatamente onde seu posicionamento está fraco, por que sua comunicação não gera desejo e qual estratégia pode <strong className="text-white">transformar seu negócio em uma máquina previsível de vendas.</strong>
                 </motion.p>
 
                 <motion.div
@@ -67,28 +66,28 @@ const HeroV2: React.FC = () => {
                 >
                     <button
                         onClick={scrollToJarvis}
-                        className="group relative px-8 py-5 rounded-xl bg-white text-black font-black text-lg overflow-hidden transition-all hover:scale-[1.02] shadow-[0_0_30px_rgba(255,255,255,0.2)]"
+                        className="group relative px-8 py-5 rounded-xl bg-white text-black font-black text-lg overflow-hidden transition-all hover:scale-[1.02] shadow-[0_0_30px_rgba(255,255,255,0.2)] whitespace-nowrap"
                     >
                         <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-magenta-neon/20 to-primary-neon/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         <span className="relative flex items-center justify-center gap-3">
-                            INICIAR DIAGNÓSTICO ESTÉTICO
+                            QUERO MINHA ANÁLISE ESTRATÉGICA
                             <Zap className="w-5 h-5 group-hover:text-magenta-neon transition-colors" />
                         </span>
                     </button>
 
                     <button
-                        className="px-8 py-5 rounded-xl glass font-bold text-white hover:bg-white/10 transition-colors border border-white/10 flex items-center justify-center gap-3"
+                        className="px-8 py-5 rounded-xl glass font-bold text-white hover:bg-white/10 transition-colors border border-white/10 flex items-center justify-center gap-3 whitespace-nowrap"
                         onClick={() => {
                             const worksSection = document.getElementById('como-funciona');
                             worksSection?.scrollIntoView({ behavior: 'smooth' });
                         }}
                     >
-                        Ver Metodologia
+                        Ver Pilares
                     </button>
                 </motion.div>
             </div>
 
-            {/* Direita: Elementos 3D Dinâmicos (Painel de Gestão Metafórico) */}
+            {/* Direita: Elementos 3D Dinâmicos */}
             <div className="w-full lg:w-1/2 mt-20 lg:mt-0 relative perspective-1000 h-[500px] hidden md:block">
 
                 {/* Card Principal - Dashboard Abstrato */}
@@ -106,8 +105,8 @@ const HeroV2: React.FC = () => {
 
                     <div className="flex justify-between items-start" style={{ transform: 'translateZ(30px)' }}>
                         <div>
-                            <p className="text-white/50 font-bold text-sm tracking-wider uppercase mb-1">CPA Atual</p>
-                            <h3 className="text-4xl font-black text-white shrink-0">R$ 14,32</h3>
+                            <p className="text-white/50 font-bold text-sm tracking-wider uppercase mb-1">Crescimento Potencial</p>
+                            <h3 className="text-4xl font-black text-white shrink-0">Ilimitado</h3>
                         </div>
                         <div className="p-3 bg-white/5 rounded-xl border border-white/10">
                             <TrendingUp className="w-6 h-6 text-magenta-neon" />
@@ -121,21 +120,21 @@ const HeroV2: React.FC = () => {
                             </div>
                         </div>
                         <div className="flex justify-between text-xs font-medium text-white/40">
-                            <span>Eficiência do Criativo</span>
-                            <span className="text-magenta-neon">85% Teto de Escala</span>
+                            <span>Eficiência da Estrutura</span>
+                            <span className="text-magenta-neon">Previsibilidade Total</span>
                         </div>
                     </div>
 
                     <div className="grid grid-cols-2 gap-4 mt-6" style={{ transform: 'translateZ(40px)' }}>
                         <div className="p-4 bg-[#0a0a0a]/80 backdrop-blur rounded-2xl border border-white/5">
                             <Target className="w-5 h-5 text-gold-main mb-2" />
-                            <p className="text-white/50 text-xs font-bold mb-1">Taxa de Conversão</p>
-                            <p className="text-xl font-black text-white">+4.2%</p>
+                            <p className="text-white/50 text-xs font-bold mb-1">Posicionamento</p>
+                            <p className="text-lg font-black text-white">Autoridade Máxima</p>
                         </div>
                         <div className="p-4 bg-[#0a0a0a]/80 backdrop-blur rounded-2xl border border-white/5">
                             <ShoppingBag className="w-5 h-5 text-primary-neon mb-2" />
-                            <p className="text-white/50 text-xs font-bold mb-1">LTV Projetado</p>
-                            <p className="text-xl font-black text-white">R$ 840</p>
+                            <p className="text-white/50 text-xs font-bold mb-1">Conversão</p>
+                            <p className="text-lg font-black text-white">Teto Destravado</p>
                         </div>
                     </div>
                 </motion.div>
@@ -154,8 +153,8 @@ const HeroV2: React.FC = () => {
                         <Eye className="w-5 h-5 text-magenta-neon" />
                     </div>
                     <div>
-                        <p className="text-xs font-bold text-white/50">Página de Produto</p>
-                        <p className="text-sm font-black text-white">Retenção Visual Aumentada</p>
+                        <p className="text-xs font-bold text-white/50">Estrutura de Conversão</p>
+                        <p className="text-sm font-black text-white">Desejo Gerado</p>
                     </div>
                 </motion.div>
 
@@ -177,8 +176,8 @@ const HeroV2: React.FC = () => {
                         <Zap className="w-5 h-5 text-gold-main" />
                     </div>
                     <div>
-                        <p className="text-xs font-bold text-white/50">Branding Inject</p>
-                        <p className="text-sm font-black text-white">Percepção de Valor Alta</p>
+                        <p className="text-xs font-bold text-white/50">Estratégia de Aquisição</p>
+                        <p className="text-sm font-black text-white">Máquina Operante</p>
                     </div>
                 </motion.div>
 

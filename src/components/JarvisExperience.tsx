@@ -1,12 +1,13 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Terminal, Lock, CheckCircle2, Volume2, ArrowRight } from 'lucide-react';
+import { Terminal, Lock, CheckCircle2, Volume2, ArrowRight, TrendingUp, Target } from 'lucide-react';
 
 type JarvisState = 'CAPTURE' | 'LOADING' | 'TRIGGER' | 'AUDIO';
 
 const JarvisExperience: React.FC = () => {
     const [currentState, setCurrentState] = useState<JarvisState>('CAPTURE');
     const [progress, setProgress] = useState(0);
+    const [userName, setUserName] = useState('');
 
     useEffect(() => {
         if (currentState === 'LOADING') {
@@ -55,7 +56,7 @@ const JarvisExperience: React.FC = () => {
 
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-magenta-neon/10 blur-[150px] rounded-[100%] pointer-events-none -z-10 animate-float"></div>
 
-            <div className="w-full max-w-2xl relative perspective-1000">
+            <div className="w-full max-w-3xl relative perspective-1000">
                 <AnimatePresence mode="wait">
 
                     {currentState === 'CAPTURE' && (
@@ -74,28 +75,30 @@ const JarvisExperience: React.FC = () => {
                                     <Terminal className="w-8 h-8 text-magenta-neon animate-pulse" />
                                 </div>
                                 <h2 className="text-3xl md:text-5xl font-black text-white mb-4 tracking-tight leading-tight">
-                                    Mapeando Seu <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-neon via-magenta-neon to-gold-main">Teto de Escala</span>
+                                    Submeta Seu Negócio <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-neon via-magenta-neon to-gold-main">ao Laboratório</span>
                                 </h2>
-                                <p className="text-white/60 font-medium text-lg">Inicie o diagnóstico para auditar seu Branding, Oferta e Retenção Visual.</p>
+                                <p className="text-white/60 font-medium text-lg">Preencha as informações abaixo e receba sua análise personalizada.</p>
                             </div>
 
                             <form onSubmit={handleSubmit} className="flex flex-col gap-5">
                                 <input
                                     type="text"
                                     required
-                                    placeholder="Nome do Diretor/CEO"
+                                    value={userName}
+                                    onChange={(e) => setUserName(e.target.value)}
+                                    placeholder="Seu Nome de Titular"
                                     className="w-full bg-[#0a0a0a] border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-magenta-neon/50 focus:ring-1 focus:ring-magenta-neon/50 transition-all font-medium placeholder:text-white/30"
                                 />
                                 <input
                                     type="url"
                                     required
-                                    placeholder="Link do Instagram (@suamarca)"
+                                    placeholder="Link do Instagram do Negócio"
                                     className="w-full bg-[#0a0a0a] border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-gold-main/50 focus:ring-1 focus:ring-gold-main/50 transition-all font-medium placeholder:text-white/30"
                                 />
                                 <input
                                     type="tel"
                                     required
-                                    placeholder="WhatsApp Estratégico (com DDD)"
+                                    placeholder="WhatsApp de Contato (com DDD)"
                                     className="w-full bg-[#0a0a0a] border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-magenta-neon/50 focus:ring-1 focus:ring-magenta-neon/50 transition-all font-medium placeholder:text-white/30"
                                 />
 
@@ -104,7 +107,7 @@ const JarvisExperience: React.FC = () => {
                                     className="mt-4 w-full group relative inline-flex items-center justify-center gap-3 bg-white text-black text-lg font-bold py-5 px-8 rounded-xl overflow-hidden transition-all hover:scale-[1.02] shadow-glow-magenta active:scale-[0.98]"
                                 >
                                     <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-primary-neon via-magenta-neon to-gold-main opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
-                                    CRIAR MEU DOSSIÊ DE ESCALA
+                                    INICIAR DIAGNÓSTICO ESTRATÉGICO
                                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                 </button>
                             </form>
@@ -122,21 +125,21 @@ const JarvisExperience: React.FC = () => {
                         >
                             <div className="flex items-center gap-3 text-gold-main mb-8 pb-4 border-b border-white/5">
                                 <Lock className="w-5 h-5" />
-                                <span className="text-sm font-bold tracking-widest uppercase text-magenta-neon">Sincronizando Banco de Inteligência</span>
+                                <span className="text-sm font-bold tracking-widest uppercase text-magenta-neon">Analisando Arquitetura do Negócio</span>
                             </div>
 
                             <div className="space-y-4 text-sm md:text-base text-white/70 mb-10">
                                 <motion.p initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 }} className="flex gap-2 text-white">
-                                    <span className="text-magenta-neon">{'>'}</span> Analisando percepção de Branding da Loja...
+                                    <span className="text-magenta-neon">{'>'}</span> Rastreando falhas de Posicionamento e Autoridade...
                                 </motion.p>
                                 <motion.p initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 1.0 }} className="flex gap-2">
-                                    <span className="text-magenta-neon">{'>'}</span> Simulando Retenção na Página de Produto...
+                                    <span className="text-magenta-neon">{'>'}</span> Mapeando quebras de persuasão no Funil de Vendas...
                                 </motion.p>
                                 <motion.p initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 2.0 }} className="flex gap-2">
-                                    <span className="text-magenta-neon">{'>'}</span> Cruzando Oferta Agressiva com LTV...
+                                    <span className="text-magenta-neon">{'>'}</span> Diagnosticando furos na Estratégia de Aquisição...
                                 </motion.p>
                                 <motion.p initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 3.0 }} className="flex gap-2 text-gold-main">
-                                    <span className="text-gold-main">{'>'}</span> Dossiê Tático 80/20 compilado com sucesso...
+                                    <span className="text-gold-main">{'>'}</span> Conclusões processadas. Gerando plano estratégico...
                                 </motion.p>
                             </div>
 
@@ -178,7 +181,7 @@ const JarvisExperience: React.FC = () => {
                             >
                                 <div className="absolute inset-0 bg-gradient-to-r from-magenta-neon/20 to-gold-main/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                                 <span className="relative z-10 text-xl md:text-2xl font-black text-white tracking-widest flex items-center gap-4">
-                                    DIAGNÓSTICO PRONTO. OUVIR I.A.
+                                    DIAGNÓSTICO PRONTO. REVELAR ANÁLISE.
                                     <Volume2 className="w-6 h-6 animate-pulse" />
                                 </span>
 
@@ -194,38 +197,60 @@ const JarvisExperience: React.FC = () => {
                             initial="hidden"
                             animate="visible"
                             exit="exit"
-                            className="glass p-10 md:p-14 rounded-3xl border border-white/10 text-center relative overflow-hidden shadow-[0_0_50px_rgba(212,175,55,0.1)]"
+                            className="glass p-8 md:p-12 rounded-3xl border border-white/10 text-left relative overflow-hidden shadow-[0_0_50px_rgba(212,175,55,0.1)]"
                         >
-                            <div className="flex items-center justify-center gap-2 mb-10 h-16">
-                                {[...Array(9)].map((_, i) => (
-                                    <motion.div
-                                        key={i}
-                                        animate={{
-                                            height: ["20%", "100%", "40%", "80%", "20%"],
-                                        }}
-                                        transition={{
-                                            duration: 1.5,
-                                            repeat: Infinity,
-                                            ease: "easeInOut",
-                                            delay: i * 0.1,
-                                        }}
-                                        className="w-3 rounded-full bg-gradient-to-t from-magenta-neon to-gold-light"
-                                    />
-                                ))}
+                            <div className="mb-8 border-b border-white/10 pb-6">
+                                <h2 className="text-2xl md:text-3xl font-black text-white mb-2 leading-relaxed">
+                                    {userName ? `${userName}, terminei a análise ` : 'Terminei a análise '}
+                                    inicial do seu negócio.
+                                </h2>
+                                <p className="text-white/60 font-medium">Aqui está o que identifiquei na nossa base de dados estratégica:</p>
                             </div>
 
-                            <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 leading-relaxed">
-                                Tática compilada. Seu plano de ação estratégico com os diagnósticos de conversão foi <span className="text-gold-main">criptografado</span> e te aguarda no WhatsApp.
-                            </h2>
-                            <p className="text-white/50 font-medium mb-10">Nossos especialistas identificarão vazamentos invisíveis que sugam sua verba todos os dias.</p>
+                            <div className="space-y-6 mb-10">
+                                <div className="flex gap-4 items-start">
+                                    <div className="p-2 rounded-lg bg-magenta-neon/10 border border-magenta-neon/30 mt-1 shrink-0">
+                                        <CheckCircle2 className="w-5 h-5 text-magenta-neon" />
+                                    </div>
+                                    <div>
+                                        <h4 className="font-bold text-white mb-1">Posicionamento:</h4>
+                                        <p className="text-white/60 text-sm">Seu negócio ainda não comunica autoridade máxima no seu mercado, dificultando o aumento da percepção de valor.</p>
+                                    </div>
+                                </div>
+
+                                <div className="flex gap-4 items-start">
+                                    <div className="p-2 rounded-lg bg-gold-main/10 border border-gold-main/30 mt-1 shrink-0">
+                                        <TrendingUp className="w-5 h-5 text-gold-main" />
+                                    </div>
+                                    <div>
+                                        <h4 className="font-bold text-white mb-1">Estrutura de Conversão:</h4>
+                                        <p className="text-white/60 text-sm">Existem pontos cegos e de fricção no funil que reduzem drasticamente a sua taxa de decisão final.</p>
+                                    </div>
+                                </div>
+
+                                <div className="flex gap-4 items-start">
+                                    <div className="p-2 rounded-lg bg-primary-neon/10 border border-primary-neon/30 mt-1 shrink-0">
+                                        <Target className="w-5 h-5 text-primary-neon" />
+                                    </div>
+                                    <div>
+                                        <h4 className="font-bold text-white mb-1">Aquisição:</h4>
+                                        <p className="text-white/60 text-sm">Sua estratégia atual provavelmente não está escalando por não explorar os ângulos magnéticos certos para o seu público.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="mb-10 text-center">
+                                <p className="text-white/80 font-medium mb-2 border-l-2 border-magenta-neon pl-4 italic">"Você não precisa reinventar seu negócio. Você precisa estruturar melhor sua mensagem, sua oferta e sua estratégia."</p>
+                                <p className="text-sm text-gold-main font-bold mt-4">Com ajustes estratégicos diretos, seu crescimento torna-se perfeitamente previsível.</p>
+                            </div>
 
                             <a
-                                href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20vim%20pela%20auditoria%20gratuita%20da%20Bicalho%20Ads%20Lab.%20Gostaria%20de%20receber%20meu%20diagn%C3%B3stico%20de%20branding%20e%20an%C3%BAncios!"
+                                href={`https://wa.me/5511999999999?text=Ol%C3%A1%2C%20acabei%20de%20rodar%20o%20diagn%C3%B3stico%20do%20Bicalho%20Ads%20Lab%20${userName ? `(meu nome é ${userName})` : ''}%20e%20quero%20aplicar%20o%20plano%20estrat%C3%A9gico%20de%20escala!`}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="group relative inline-flex items-center justify-center gap-3 w-full bg-[#25D366]/10 border border-[#25D366]/30 text-[#25D366] hover:bg-[#25D366] hover:text-black py-5 px-8 rounded-xl font-bold text-lg transition-all shadow-[0_0_30px_rgba(37,211,102,0.15)] hover:shadow-[0_0_40px_rgba(37,211,102,0.4)]"
+                                className="group relative inline-flex items-center justify-center gap-3 w-full bg-white text-black py-4 px-8 rounded-xl font-black text-lg transition-all shadow-[0_0_30px_rgba(255,255,255,0.15)] hover:shadow-[0_0_40px_rgba(255,255,255,0.4)] hover:scale-[1.02] active:scale-[0.98]"
                             >
-                                ABRIR MEU WHATSAPP AGORA
+                                APLICAR PLANO ESTRATÉGICO AGORA
                                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                             </a>
                         </motion.div>

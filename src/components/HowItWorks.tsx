@@ -4,20 +4,20 @@ import { DatabaseZap, Activity, Rocket } from 'lucide-react';
 const steps = [
     {
         id: 1,
-        title: "1. Blindagem de Branding",
-        description: "Reescrevemos a percepção de valor da sua marca. Construímos uma estética impossível de ser ignorada, preparando o terreno para ticket alto.",
+        title: "1. Posicionamento e Branding",
+        description: "Como fazer seu negócio parecer maior, mais confiável e mais profissional — independentemente do nicho.",
         icon: <DatabaseZap className="w-8 h-8 text-gold-main" />
     },
     {
         id: 2,
-        title: "2. Páginas de Alta Retenção",
-        description: "Sua vitrine vaza dinheiro. Nós desenhamos landing pages com retenção visual aguda focada em conversão, usabilidade tática e redução de fricção.",
+        title: "2. Estrutura de Conversão",
+        description: "Análise estratégica de página e funil para identificar quebras de persuasão, falta de autoridade e erros de estrutura.",
         icon: <Activity className="w-8 h-8 text-magenta-neon" />
     },
     {
         id: 3,
-        title: "3. Anúncios em Escala",
-        description: "Com branding sólido e loja otimizada, injetamos tráfego agressivo. Campanhas táticas projetadas pela I.A. para capturar a maior fatia de mercado possível.",
+        title: "3. Estratégia de Aquisição",
+        description: "Diagnóstico de tráfego abrangente: correção de ângulos criativos, estrutura de oferta e direcionamento de público para escalar.",
         icon: <Rocket className="w-8 h-8 text-white" />
     }
 ];
@@ -33,7 +33,7 @@ const HowItWorks: React.FC = () => {
                 <div className="text-center mb-20">
                     <h2 className="text-sm font-bold tracking-[0.2em] text-gold-main uppercase mb-4">Engenharia Híbrida</h2>
                     <h3 className="text-4xl md:text-5xl font-black text-white tracking-tight">
-                        Como Funciona o <span className="text-transparent bg-clip-text bg-gradient-to-r from-magenta-neon to-gold-main">Laboratório</span>
+                        Os 3 Pilares do <span className="text-transparent bg-clip-text bg-gradient-to-r from-magenta-neon to-gold-main">Laboratório</span>
                     </h3>
                 </div>
 
