@@ -22,7 +22,7 @@ const HeroV2: React.FC = () => {
     };
 
     return (
-        <section className="relative w-full min-h-screen pt-32 pb-20 px-6 flex flex-col lg:flex-row items-center justify-between max-w-7xl mx-auto z-20 overflow-hidden">
+        <section className="relative w-full min-h-[100svh] pt-28 pb-10 px-6 lg:px-12 flex flex-col lg:flex-row items-center justify-between max-w-[1440px] mx-auto z-20 overflow-hidden">
 
             {/* Background Glows Subtis - Fundo Preto Profundo V3 */}
             <div className="absolute top-1/4 -left-1/4 w-[600px] h-[600px] bg-primary-dark/20 blur-[150px] rounded-full pointer-events-none -z-10"></div>
